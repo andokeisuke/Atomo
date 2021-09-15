@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">atomo</string>
+    <string name="main">Main Activity</string>
+    <string name="move">MOVE</string>
+    <string name="log">Log </string>
+    <string name="mission">mission </string>
+    <string name="status">status </string>
+    <string name="return_sub">HOME</string>
+</resources>

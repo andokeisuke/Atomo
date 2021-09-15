@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "622497858355",
+    "project_id": "atomo-97032",
+    "storage_bucket": "atomo-97032.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622497858355:android:bc41c94e9be94effac7446",
+        "android_client_info": {
+          "package_name": "com.example.atomo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622497858355-enkm4e20v8sgc1bsm41dn2ae60rod6fi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6I-iX0y4WCCGVh6T_MZ6LC6g8K1TggTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622497858355-enkm4e20v8sgc1bsm41dn2ae60rod6fi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
