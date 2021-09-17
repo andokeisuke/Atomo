@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
     private float[] th = {800,900,1000,1200};
 
+    //database
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("CO2");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,32 +54,32 @@ public class MainActivity extends AppCompatActivity {
         ImageButton log_Button = findViewById(R.id.log_button);
         ImageButton mission_Button = findViewById(R.id.mission_button);
 
-
         //状態の更新
         float CO2 = myValue.getCO2();
         JudgeStatus(CO2);
 
         //stausへ遷移
         status_Button.setOnClickListener(v -> {
+
             Intent intent = new Intent(getApplication(), StatusActivity.class);
             startActivity(intent);
         });
 
         //logへ遷移
         log_Button.setOnClickListener(v -> {
+
             Intent intent = new Intent(getApplication(), LogActivity.class);
             startActivity(intent);
         });
 
         //missionへ遷移
         mission_Button.setOnClickListener(v -> {
+
             Intent intent = new Intent(getApplication(), MissionActivity.class);
             startActivity(intent);
         });
 
-        //database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("CO2");
+
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -84,7 +88,9 @@ public class MainActivity extends AppCompatActivity {
                 // whenever data at this location is updated.
                 String value1 = (String)dataSnapshot.child("value").getValue();
                 //String value2 = (String)dataSnapshot.child("test2").getValue();
-                JudgeStatus(Float.parseFloat(value1));
+                myValue.setCO2(Float.parseFloat(value1));
+                JudgeStatus(myValue.getCO2());
+
 
             }
 
@@ -94,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FirebaseMessaging.getInstance().getToken()
+        /*FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
                     public void onComplete(@NonNull Task<String> task) {
@@ -110,15 +116,33 @@ public class MainActivity extends AppCompatActivity {
                         //Log.d(TAG, msg);
                         //Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
 
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //myRef.addValueEventListener(Listener);
+
+        //JudgeStatus(myValue.getCO2());
+    }
+
+    @Override
+    public void onStop() {
+
+
+        super.onStop();
+        //JudgeStatus(myValue.getCO2());
 
 
     }
 
     public void JudgeStatus(float CO2){
 
-        myValue.setCO2(CO2);
+
         int Status = CO2Status(CO2);
         myValue.setStatus(Status);
 
@@ -126,18 +150,23 @@ public class MainActivity extends AppCompatActivity {
         if(Status == 0){
             background.setImageResource(R.drawable.main_background100);
             comfort_var.setImageResource(R.drawable.comfort_var100);
+            atomo.setImageResource(R.drawable.atomo_love);
+
 
         }else if(Status == 1){
             background.setImageResource(R.drawable.main_background75);
             comfort_var.setImageResource(R.drawable.comfort_var75);
+            atomo.setImageResource(R.drawable.atomo_nikoniko);
 
         }else if(Status == 2){
             background.setImageResource(R.drawable.main_background50);
             comfort_var.setImageResource(R.drawable.comfort_var50);
+            atomo.setImageResource(R.drawable.atomo_default);
 
         }else if(Status == 3){
             background.setImageResource(R.drawable.main_background25);
             comfort_var.setImageResource(R.drawable.comfort_var25);
+            atomo.setImageResource(R.drawable.atomo_syonbori);
 
         }
 

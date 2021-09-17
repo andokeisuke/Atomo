@@ -36,6 +36,7 @@ public class LoadActivity extends AppCompatActivity {
                 String value1 = (String)dataSnapshot.child("value").getValue();
 
                 myValue.setCO2(Float.parseFloat(value1));
+                myRef.removeEventListener(this);
                 Intent intent = new Intent(getApplication(), MainActivity.class);
                 startActivity(intent);
 

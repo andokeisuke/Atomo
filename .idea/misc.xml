@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/akuss/AndroidStudioProjects/atomo2/app/src/main/res/layout/activity_accesory.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/akuss/AndroidStudioProjects/atomo2/app/src/main/res/layout/activity_load.xml" value="0.2611111111111111" />
         <entry key="..\:/Users/akuss/AndroidStudioProjects/atomo2/app/src/main/res/layout/activity_log.xml" value="0.20425724637681159" />
         <entry key="..\:/Users/akuss/AndroidStudioProjects/atomo2/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/akuss/AndroidStudioProjects/atomo2/app/src/main/res/layout/activity_mission.xml" value="0.297008547008547" />
+        <entry key="..\:/Users/akuss/AndroidStudioProjects/atomo2/app/src/main/res/layout/activity_status.xml" value="0.2641025641025641" />
+        <entry key="..\:/Users/akuss/AndroidStudioProjects/atomo2/app/src/main/res/layout/custom_dialog.xml" value="0.2586050724637681" />
+        <entry key="..\:/Users/akuss/AndroidStudioProjects/atomo2/app/src/main/res/layout/list.xml" value="0.6" />
+        <entry key="..\:/Users/akuss/AndroidStudioProjects/atomo2/app/src/main/res/layout/list_text.xml" value="0.2623931623931624" />
         <entry key="..\:/Users/akuss/AndroidStudioProjects/atomo2/app/src/main/res/layout/marker_view.xml" value="0.13803418803418804" />
       </map>
     </option>

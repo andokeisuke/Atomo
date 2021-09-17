@@ -1,17 +1,27 @@
 package com.example.atomo;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MissionActivity extends AppCompatActivity {
+
+    private MyValue myValue;
+    private MyAdapter myAdapter;
+    private int tab_state = 0;
 
 
     private static final String[] texts = {
@@ -35,44 +45,134 @@ public class MissionActivity extends AppCompatActivity {
 
     };
 
+    private static final String[] daily_text = {
+
+            "充実度70以上を維持",
+            "CO2 800ppm以下を維持",
+            "温度28度以下を維持",
+            "湿度50％以下を維持",
+            "湿度50％以下を維持"
+
+    };
+
+    private static final String[] weekly_text = {
+
+            "充実度70以上を維持",
+            "CO2 800ppm以下を維持",
+            "温度28度以下を維持",
+            "湿度50％以下を維持",
+            "5日間ミッション達成"
+
+    };
+
+    private static final String[] monthly_text = {
+
+            "充実度70以上を維持",
+            "CO2 800ppm以下を維持",
+            "温度28度以下を維持",
+            "湿度50％以下を維持",
+            "20日ミッション達成"
+
+    };
+
+    private static final int[] box = {
+            R.drawable.present_off,
+            R.drawable.present_on
+
+    };
+
+    private static final int[] var = {
+            R.drawable.goal_var0,
+            R.drawable.goal_var25,
+            R.drawable.goal_var50,
+            R.drawable.goal_var75,
+            R.drawable.goal_var100
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_mission);
+        myValue = (MyValue) this.getApplication();
 
+        ImageButton daily_Button = findViewById(R.id.daily);
+        ImageButton weekly_Button = findViewById(R.id.weekly);
+        ImageButton monthly_Button = findViewById(R.id.monthly);
         Button returnButton = findViewById(R.id.return_button);
-//        returnButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//            }
-//        });
+        ListView listView = findViewById(R.id.listView);
+
+        myAdapter = new MyAdapter(MissionActivity.this, R.layout.list,daily_text, myValue.getdaily(),box,var );
+        listView.setAdapter(myAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+
+                int[] goal = {myValue.getdaily()[position],myValue.getweekly()[position],myValue.getmonthly()[position]};
+
+
+                if(goal[tab_state]==4) {
+                    ListView listView = (ListView) parent;
+                    ImageView present = (ImageView) listView.findViewWithTag(position);
+                    present.setImageResource(R.drawable.present_off);
+
+                    DialogFragment dialogFragment = new MyDialogFragment();
+                    dialogFragment.show(getSupportFragmentManager(), "my_dialog");
+
+
+
+                }
+
+
+
+
+            }
+        });
+
 
         // lambda式
         returnButton.setOnClickListener(v -> finish());
+        //daily
+        daily_Button.setOnClickListener(v -> {
 
-        ListView listView = findViewById(R.id.listView);
+            myAdapter = new MyAdapter(MissionActivity.this, R.layout.list,daily_text, myValue.getdaily(),box,var );
+            listView.setAdapter(myAdapter);
+            daily_Button.setImageResource(R.drawable.daily_on);
+            weekly_Button.setImageResource(R.drawable.weekly_off);
+            monthly_Button.setImageResource(R.drawable.monthly_off);
+            tab_state = 0;
 
-        List<MyData> list = new ArrayList<>();
+        });
+
+        weekly_Button.setOnClickListener(v -> {
+
+            myAdapter = new MyAdapter(MissionActivity.this, R.layout.list,weekly_text, myValue.getweekly(),box,var );
+            listView.setAdapter(myAdapter);
+            daily_Button.setImageResource(R.drawable.daily_off);
+            weekly_Button.setImageResource(R.drawable.weekly_on);
+            monthly_Button.setImageResource(R.drawable.monthly_off);
+            tab_state = 1;
+
+        });
+
+        monthly_Button.setOnClickListener(v -> {
+
+            myAdapter = new MyAdapter(MissionActivity.this, R.layout.list,monthly_text, myValue.getmonthly(),box,var );
+            listView.setAdapter(myAdapter);
+            daily_Button.setImageResource(R.drawable.daily_off);
+            weekly_Button.setImageResource(R.drawable.weekly_off);
+            monthly_Button.setImageResource(R.drawable.monthly_on);
+            tab_state = 2;
+
+        });
 
 
 
-        for(int i = 0;i<texts.length;i++){
-
-            MyData myData = new MyData();
-            myData.setTextdata(texts[i]);
-            if(i == 0 || i == 5 || i == 10) myData.setTitle(true);
-            myData.setChecked(false);
-            list.add(myData);
-
-
-        }
-
-
-        MyAdapter adapter = new MyAdapter(MissionActivity.this, R.layout.list,list);
-        listView.setAdapter(adapter);
 
     }
+
+
+
 
 }

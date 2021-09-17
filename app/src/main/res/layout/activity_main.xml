@@ -58,7 +58,7 @@
         android:id="@+id/atomo"
         android:layout_width="359dp"
         android:layout_height="205dp"
-        android:src="@drawable/atomo_char"
+        android:src="@drawable/atomo_default"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
