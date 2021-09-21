@@ -23,6 +23,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import android.text.format.Time;
 
 
 public class LogActivity extends AppCompatActivity {
@@ -88,7 +91,7 @@ public class LogActivity extends AppCompatActivity {
 
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("CO2");
+        DatabaseReference myRef = database.getReference("ppm");
 
         //myRef.setValue("Hello, World!");
 
@@ -97,13 +100,72 @@ public class LogActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                String value1 = (String)dataSnapshot.child("value").getValue();
+
+                Time time = new Time("Asia/Tokyo");
+                time.setToNow();
+                int hour = time.hour;
+                int min = time.minute;
+                int sec = 0;
+                if(sec<=15) sec = 0;
+                else if (sec>15&&sec<=30) sec = 15;
+                else if (sec>30&&sec<=45) sec = 30;
+                else if (sec>45) sec = 45;
+
+                List<String> date_labels = new ArrayList<String>();
+                date_labels.add("0:0:0");
+                int temp_h = 0;
+                int temp_m = 0;
+                int temp_s = 0;
+
+                for (int i = 0; i<6000; i++) {
+
+                    temp_s = temp_s + 15;
+
+                    if(temp_s == 60){
+
+                        temp_m++;
+                        temp_s = 0;
+                    }
+
+                    if(temp_m == 60){
+
+                        temp_h++;
+                        temp_m = 0;
+                    }
+
+                    if(temp_h == 24){
+                        temp_h = 0;
+                    }
+
+
+                    date_labels.add( temp_h + ":" + temp_m + ":" + temp_s);
+
+                    if((hour==temp_h)&&(min == temp_m)&&(sec == temp_s)) break;
+
+                }
+
+                List<Integer> ppm = new ArrayList<>();
+
+                for (int i = 0; i < date_labels.size(); i++) {
+                    String value = (String) dataSnapshot.child(date_labels.get(i)).getValue();
+                    if(value != null) ppm.add(Integer.parseInt(value));
+                    else ppm.add(Integer.parseInt((String) dataSnapshot.child(date_labels.get(i-1)).getValue()));
+
+                }
+
+
+
+
+
+
+
+                //String value1 = (String)dataSnapshot.child("value").getValue();
                 //String value2 = (String)dataSnapshot.child("test2").getValue();
 
 
                 // add data
                 //setData(Integer.parseInt(value1));
-                setData(1);
+                setData(ppm,date_labels);
                 mChart.invalidate();
 
             }
@@ -119,27 +181,20 @@ public class LogActivity extends AppCompatActivity {
 
     }
 
-    private void setData(int a) {
+    private void setData(List<Integer> ppm,List<String> time) {
         // Entry()を使ってLineDataSetに設定できる形に変更してarrayを新しく作成
-        int data[] = {116*a, 111, 112, 121, 102, 83,
-                99, 101, 74, 105, 120, 112,
-                109, 102, 107, 93, 82, 99, 110,
-                70,60,80,85,50
-        };
 
-        int time[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,
-                      13,14,15,16,17,18,19,20,21,22,23
-        };
 
 
         YAxis leftAxis = mChart.getAxisLeft();
         // Y軸最大最小設定
-        leftAxis.setAxisMaximum(data[0]+10f);
+        leftAxis.setAxisMaximum(4500);
+        leftAxis.setAxisMinimum(400);
 
         ArrayList<Entry> values = new ArrayList<>();
 
-        for (int i = 0; i < data.length; i++) {
-            values.add(new Entry(time[i], data[i], null, null));
+        for (int i = 0; i < ppm.size(); i++) {
+            final boolean add = values.add(new Entry(i, ppm.get(i), null, null));
         }
 
         LineDataSet set1;
