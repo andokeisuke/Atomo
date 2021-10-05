@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView background;
     private ImageView comfort_var;
     private TextView lifeday_num;
-    private ImageView atomo;
+    private ImageButton atomo;
 
     private float[] th = {800,900,1000,1200};
 
@@ -50,18 +50,33 @@ public class MainActivity extends AppCompatActivity {
         comfort_var = findViewById(R.id.comfort_var);
         lifeday_num = findViewById(R.id.lifeday_num);
         atomo = findViewById(R.id.atomo);
-        ImageButton status_Button = findViewById(R.id.status_button);
+        ImageButton score_Button = findViewById(R.id.score_button);
         ImageButton log_Button = findViewById(R.id.log_button);
         ImageButton mission_Button = findViewById(R.id.mission_button);
+        ImageButton board_Button = findViewById(R.id.board_button);
 
         //状態の更新
         float CO2 = myValue.getCO2();
         JudgeStatus(CO2);
 
         //stausへ遷移
-        status_Button.setOnClickListener(v -> {
+        atomo.setOnClickListener(v -> {
 
             Intent intent = new Intent(getApplication(), StatusActivity.class);
+            startActivity(intent);
+        });
+
+        //boardへ遷移
+        board_Button.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getApplication(), BoardActivity.class);
+            startActivity(intent);
+        });
+
+        //scoreへ遷移
+        score_Button.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getApplication(), ScoreSelectActivity.class);
             startActivity(intent);
         });
 

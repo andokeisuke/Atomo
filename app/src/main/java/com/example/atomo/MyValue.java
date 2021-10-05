@@ -12,6 +12,7 @@ public class MyValue extends Application {
     private int [] daily_status = {0,1,2,3,4};
     private int [] monthly_status = {0,1,2,3,4};
     private int [] weekly_status = {0,1,2,3,4};
+    private int [] user_status = {2,2,2,2,2};
 
 
     @Override
@@ -99,6 +100,18 @@ public class MyValue extends Application {
         for(int i =0;i< Monthly.length;i++){
 
             monthly_status[i] = Monthly[i];
+
+        }
+    }
+
+    public int[] getUser_status() {
+        return user_status;
+    }
+
+    public void setUser_status(int[] User_status) {
+        for(int i =0;i< User_status.length;i++){
+
+            user_status[i] = User_status[i];
 
         }
     }
