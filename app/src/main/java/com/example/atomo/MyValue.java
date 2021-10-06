@@ -126,4 +126,12 @@ public class MyValue extends Application {
     public void addMadori(List<float[]> Madori){
         madori_list.add(Madori);
     }
+
+    public void setMadori(List<float[]> Madori,int index){
+        for(int i = 0;i<madori_list.get(index).size();i++){
+
+            madori_list.get(index).get(i)[2] = Madori.get(i)[2];
+
+        }
+    }
 }

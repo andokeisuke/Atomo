@@ -41,6 +41,7 @@
         app:layout_constraintTop_toTopOf="@+id/lifeday"
         app:layout_constraintVertical_bias="0.592" />
 
+
     <ImageView
         android:id="@+id/comfort_var"
         android:layout_width="265dp"
@@ -53,14 +54,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.02" />
 
+
     <HorizontalScrollView
         android:id="@+id/horizontal_scroll"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/score_background"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/score_background"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.404">
 
         <LinearLayout
             android:id="@+id/madoriList"
@@ -82,30 +86,58 @@
 
     </HorizontalScrollView>
 
-
-    <LinearLayout
-        android:id="@+id/canvas"
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/windowList"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/score_background"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665"
-        tools:layout_editor_absoluteX="-7dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_scroll"
+        app:layout_constraintVertical_bias="0.2">
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/madori"
+            android:layout_width="270dp"
+            android:layout_height="180dp"
+            android:layout_margin="5dp"
+            android:background="@null"
+            android:src="@drawable/madori"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <com.example.atomo.WindowView
+            android:id="@+id/windowview"
+            android:layout_width="270dp"
+            android:layout_height="180dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.2">
+
+        </com.example.atomo.WindowView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <ImageButton
-        android:id="@+id/letter_button"
+        android:id="@+id/start_button"
         android:layout_width="103dp"
         android:layout_height="61dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/letter_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.848"
-        app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

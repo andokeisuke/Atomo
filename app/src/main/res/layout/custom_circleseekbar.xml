@@ -1,39 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
     android:orientation="vertical">
 
     <me.tankery.lib.circularseekbar.CircularSeekBar
         android:id="@+id/seek_bar"
-        android:layout_width="@dimen/seekbar_size_small"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/seekbar_margin"
-        android:layout_marginLeft="@dimen/seekbar_margin"
-        android:layout_marginRight="@dimen/seekbar_margin"
-        app:cs_negative_enabled="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:cs_negative_enabled="false"
         app:cs_circle_style="round"
-        app:cs_circle_stroke_width="8dp"
-        app:cs_pointer_stroke_width="24dp"
-        app:cs_pointer_halo_width="@dimen/seekbar_holo_width"/>
-
-
-
+        app:cs_circle_stroke_width="5dp"
+        app:cs_pointer_stroke_width="1dp"
+        app:cs_pointer_halo_width="@dimen/seekbar_holo_width"
+        tools:ignore="MissingConstraints" />
 
 
     <TextView
-        android:id="@+id/text_event"
-        android:text="@null"
+        android:id="@+id/percent"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/seek_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seek_bar" />
 
-    <TextView
-        android:id="@+id/text_progress"
-        android:text="Butt path with listener, touch to see the effect."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-</LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

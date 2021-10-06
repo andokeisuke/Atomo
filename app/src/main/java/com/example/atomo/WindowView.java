@@ -12,29 +12,13 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TouchView extends View {
+public class WindowView extends View {
 
-    private float xZahyou = 0;
-    private float yZahyou = 0;
     private List<float[]> points = new ArrayList<>();
 
-    public TouchView(Context context, AttributeSet attrs) {
+    public WindowView(Context context, AttributeSet attrs) {
         super(context,attrs);
         setFocusable(true);
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-
-        xZahyou = event.getX();
-        yZahyou = event.getY();
-
-        float[] point = new float[]{xZahyou,yZahyou,0};
-        points.add(point);
-
-        this.invalidate();
-
-        return true;
     }
 
     @Override
@@ -66,4 +50,20 @@ public class TouchView extends View {
 
         return points;
     }
+
+    public void setPoint(List<float[]> Points){
+
+        points = new ArrayList<>();
+
+        for(int i = 0;i<Points.size();i++){
+
+            points.add(Points.get(i));
+
+        }
+
+        invalidate();
+
+
+    }
+
 }

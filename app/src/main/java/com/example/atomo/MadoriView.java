@@ -30,7 +30,7 @@ public class MadoriView extends View{
 
         for(int i = 0;i<points.size();i++){
 
-            canvas.drawCircle(points.get(i)[0], points.get(i)[1], 40, paint);
+            canvas.drawCircle(points.get(i)[0]/3, points.get(i)[1]/3, 40, paint);
 
 
         }
