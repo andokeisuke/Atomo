@@ -1,6 +1,10 @@
 package com.example.atomo;
 
 import android.app.Application;
+import android.view.ViewDebug;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MyValue extends Application {
 
@@ -13,6 +17,7 @@ public class MyValue extends Application {
     private int [] monthly_status = {0,1,2,3,4};
     private int [] weekly_status = {0,1,2,3,4};
     private int [] user_status = {2,2,2,2,2};
+    private List<List<float[]>> madori_list = new ArrayList<>();
 
 
     @Override
@@ -114,5 +119,11 @@ public class MyValue extends Application {
             user_status[i] = User_status[i];
 
         }
+    }
+
+    public List<List<float[]>> getMadori_list(){ return madori_list;}
+
+    public void addMadori(List<float[]> Madori){
+        madori_list.add(Madori);
     }
 }

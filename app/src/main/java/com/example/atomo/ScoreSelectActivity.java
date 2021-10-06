@@ -21,7 +21,7 @@ public class ScoreSelectActivity extends AppCompatActivity {
         //letterへ遷移
         score_Button.setOnClickListener(v -> {
 
-            Intent intent = new Intent(getApplication(), LetterActivity.class);
+            Intent intent = new Intent(getApplication(), WindowLocationActivity.class);
             startActivity(intent);
         });
 
