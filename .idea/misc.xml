@@ -19,7 +19,7 @@
         <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/activity_editwindowlocation.xml" value="0.1" />
         <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/activity_letter.xml" value="0.2" />
         <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/activity_log.xml" value="0.1" />
-        <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/activity_main.xml" value="0.1764957264957265" />
+        <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/activity_main.xml" value="0.136" />
         <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/activity_mission.xml" value="0.1" />
         <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/activity_score.xml" value="0.1" />
         <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/activity_scoreselect.xml" value="0.1" />
@@ -27,6 +27,8 @@
         <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/activity_windowlocation.xml" value="0.1" />
         <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/attrs.xml" value="0.1764957264957265" />
         <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/custom_circleseekbar.xml" value="0.38170347003154576" />
+        <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/header.xml" value="0.17735042735042736" />
+        <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/icon_bar.xml" value="0.1764957264957265" />
         <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/list.xml" value="0.1576923076923077" />
         <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/list_text.xml" value="0.16367521367521368" />
         <entry key="..\:/Users/akuss/Desktop/Atomo/app/src/main/res/layout/madori_list.xml" value="0.536" />

@@ -31,12 +31,15 @@ public class MainActivity extends AppCompatActivity {
     private ImageView comfort_var;
     private TextView lifeday_num;
     private ImageButton atomo;
+    private ImageView climate_background;
+    private ImageView window_background;
 
     private float[] th = {800,900,1000,1200};
 
     //database
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("CO2");
+    DatabaseReference in = database.getReference("in");
+    DatabaseReference out = database.getReference("out");
 
 
     @Override
@@ -50,14 +53,13 @@ public class MainActivity extends AppCompatActivity {
         comfort_var = findViewById(R.id.comfort_var);
         lifeday_num = findViewById(R.id.lifeday_num);
         atomo = findViewById(R.id.atomo);
-        ImageButton score_Button = findViewById(R.id.score_button);
-        ImageButton log_Button = findViewById(R.id.log_button);
-        ImageButton mission_Button = findViewById(R.id.mission_button);
-        ImageButton board_Button = findViewById(R.id.board_button);
+        climate_background = findViewById(R.id.climate_background);
+        window_background = findViewById(R.id.window_background);
+
 
         //状態の更新
         float CO2 = myValue.getCO2();
-        JudgeStatus(CO2);
+        JudgeStatus(CO2,(int)myValue.getOut_status()[0]);
 
         //stausへ遷移
         atomo.setOnClickListener(v -> {
@@ -65,6 +67,16 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplication(), StatusActivity.class);
             startActivity(intent);
         });
+
+        ImageButton diagnose_Button = findViewById(R.id.diagnose_button);
+        ImageButton log_Button = findViewById(R.id.log_button);
+        ImageButton mission_Button = findViewById(R.id.mission_button);
+        ImageButton board_Button = findViewById(R.id.board_button);
+        ImageButton home_Button = findViewById(R.id.home_button);
+        TextView in_tempture = findViewById(R.id.in_tempture);
+        TextView in_humidity = findViewById(R.id.in_humidity);
+        TextView out_tempture = findViewById(R.id.out_tempture);
+        TextView out_humidity = findViewById(R.id.out_humidity);
 
         //boardへ遷移
         board_Button.setOnClickListener(v -> {
@@ -74,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //scoreへ遷移
-        score_Button.setOnClickListener(v -> {
+        diagnose_Button.setOnClickListener(v -> {
 
             Intent intent = new Intent(getApplication(), ScoreSelectActivity.class);
             startActivity(intent);
@@ -94,20 +106,57 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        //homeへ遷移
+        home_Button.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getApplication(), MainActivity.class);
+            startActivity(intent);
+        });
 
 
-        myRef.addValueEventListener(new ValueEventListener() {
+
+        in.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                String value1 = (String)dataSnapshot.child("value").getValue();
+                String value1 = (String)dataSnapshot.child("CO2").getValue();
                 //String value2 = (String)dataSnapshot.child("test2").getValue();
                 myValue.setCO2(Float.parseFloat(value1));
-                JudgeStatus(myValue.getCO2());
+                JudgeStatus(myValue.getCO2(),(int)myValue.getOut_status()[0]);
+
+                String tempture = (String) dataSnapshot.child("tempture").getValue();
+                String humidity = (String) dataSnapshot.child("humidity").getValue();
+                myValue.setIn_status(Float.parseFloat(tempture),Float.parseFloat(humidity));
+                in_tempture.setText(tempture);
+                in_humidity.setText(humidity);
+
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+            }
+        });
+
+        out.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String climate = (String)dataSnapshot.child("climate").getValue();
+                String tempture = (String) dataSnapshot.child("tempture").getValue();
+                String humidity = (String) dataSnapshot.child("humidity").getValue();
+                myValue.setOut_status(Integer.parseInt(climate),Float.parseFloat(tempture),Float.parseFloat(humidity));
+                out_tempture.setText(tempture);
+                out_humidity.setText(humidity);
+                JudgeStatus(myValue.getCO2(),(int)myValue.getOut_status()[0]);
+
 
 
             }
+
 
             @Override
             public void onCancelled(DatabaseError error) {
@@ -155,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void JudgeStatus(float CO2){
+    public void JudgeStatus(float CO2,int climate){
 
 
         int Status = CO2Status(CO2);
@@ -166,22 +215,97 @@ public class MainActivity extends AppCompatActivity {
             background.setImageResource(R.drawable.main_background100);
             comfort_var.setImageResource(R.drawable.comfort_var100);
             atomo.setImageResource(R.drawable.atomo_love);
+            if(climate==0){
+                climate_background.setVisibility(View.GONE);
+                window_background.setVisibility(View.GONE);
+
+            }else if(climate==1){
+
+                climate_background.setVisibility(View.VISIBLE);
+                climate_background.setImageResource(R.drawable.climate_cloudy);
+                window_background.setVisibility(View.GONE);
+
+            }else if(climate==2){
+
+                climate_background.setVisibility(View.VISIBLE);
+                climate_background.setImageResource(R.drawable.climate_rain);
+                window_background.setVisibility(View.GONE);
+
+            }
 
 
         }else if(Status == 1){
             background.setImageResource(R.drawable.main_background75);
             comfort_var.setImageResource(R.drawable.comfort_var75);
             atomo.setImageResource(R.drawable.atomo_nikoniko);
+            if(climate==0){
+                climate_background.setVisibility(View.GONE);
+                window_background.setVisibility(View.GONE);
+
+
+            }else if(climate==1){
+
+                climate_background.setVisibility(View.VISIBLE);
+                climate_background.setImageResource(R.drawable.climate_cloudy);
+                window_background.setVisibility(View.GONE);
+
+            }else if(climate==2){
+
+                climate_background.setVisibility(View.VISIBLE);
+                climate_background.setImageResource(R.drawable.climate_rain);
+                window_background.setVisibility(View.GONE);
+
+            }
 
         }else if(Status == 2){
             background.setImageResource(R.drawable.main_background50);
             comfort_var.setImageResource(R.drawable.comfort_var50);
             atomo.setImageResource(R.drawable.atomo_default);
 
+            if(climate==0){
+                climate_background.setVisibility(View.GONE);
+                window_background.setVisibility(View.VISIBLE);
+                window_background.setImageResource(R.drawable.window_sun);
+
+
+            }else if(climate==1){
+
+                climate_background.setVisibility(View.GONE);
+                window_background.setVisibility(View.VISIBLE);
+                window_background.setImageResource(R.drawable.window_cloud);
+
+            }else if(climate==2){
+
+                climate_background.setVisibility(View.GONE);
+                window_background.setVisibility(View.VISIBLE);
+                window_background.setImageResource(R.drawable.window_rain);
+
+            }
+
         }else if(Status == 3){
             background.setImageResource(R.drawable.main_background25);
             comfort_var.setImageResource(R.drawable.comfort_var25);
             atomo.setImageResource(R.drawable.atomo_syonbori);
+
+            if(climate==0){
+                climate_background.setVisibility(View.GONE);
+                window_background.setVisibility(View.VISIBLE);
+                window_background.setImageResource(R.drawable.window_sun);
+
+
+            }else if(climate==1){
+
+                climate_background.setVisibility(View.GONE);
+                window_background.setVisibility(View.VISIBLE);
+                window_background.setImageResource(R.drawable.window_cloud);
+
+            }else if(climate==2){
+
+                climate_background.setVisibility(View.GONE);
+                window_background.setVisibility(View.VISIBLE);
+                window_background.setImageResource(R.drawable.window_rain);
+
+            }
 
         }
 

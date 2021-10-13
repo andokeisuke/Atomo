@@ -16,7 +16,7 @@ public class BoardActivity  extends AppCompatActivity {
         setContentView(R.layout.activity_board);
 
         ImageButton letter_Button = findViewById(R.id.letter_button);
-        Button returnButton = findViewById(R.id.return_button);
+
 
 
         //letterへ遷移
@@ -26,11 +26,49 @@ public class BoardActivity  extends AppCompatActivity {
             startActivity(intent);
         });
 
-        returnButton.setOnClickListener(v -> {
+        ImageButton diagnose_Button = findViewById(R.id.diagnose_button);
+        ImageButton log_Button = findViewById(R.id.log_button);
+        ImageButton mission_Button = findViewById(R.id.mission_button);
+        ImageButton board_Button = findViewById(R.id.board_button);
+        ImageButton home_Button = findViewById(R.id.home_button);
+
+        //boardへ遷移
+        board_Button.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getApplication(), BoardActivity.class);
+            startActivity(intent);
+        });
+
+        //scoreへ遷移
+        diagnose_Button.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getApplication(), ScoreSelectActivity.class);
+            startActivity(intent);
+        });
+
+        //logへ遷移
+        log_Button.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getApplication(), LogActivity.class);
+            startActivity(intent);
+        });
+
+        //missionへ遷移
+        mission_Button.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getApplication(), MissionActivity.class);
+            startActivity(intent);
+        });
+
+        //homeへ遷移
+        home_Button.setOnClickListener(v -> {
 
             Intent intent = new Intent(getApplication(), MainActivity.class);
             startActivity(intent);
         });
+
+
+
 
 
     }

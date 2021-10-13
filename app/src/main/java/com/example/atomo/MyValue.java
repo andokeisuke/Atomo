@@ -18,6 +18,8 @@ public class MyValue extends Application {
     private int [] weekly_status = {0,1,2,3,4};
     private int [] user_status = {2,2,2,2,2};
     private List<List<float[]>> madori_list = new ArrayList<>();
+    private float[] in_status = {20,60};
+    private float[] out_status = {0,20,60};
 
 
     @Override
@@ -133,5 +135,26 @@ public class MyValue extends Application {
             madori_list.get(index).get(i)[2] = Madori.get(i)[2];
 
         }
+    }
+
+    public void setIn_status(float tempture,float humidity){
+        in_status[0] = tempture;
+        in_status[1] = humidity;
+    }
+
+    public float[] getIn_status(){
+
+        return in_status;
+    }
+
+    public void setOut_status(int climate,float tempture,float humidity){
+        out_status[0] = climate;
+        out_status[1] = tempture;
+        out_status[2] = humidity;
+    }
+
+    public float[] getOut_status(){
+
+        return out_status;
     }
 }
