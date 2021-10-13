@@ -1,72 +1,32 @@
 package com.example.atomo;
 
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.text.format.Time;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ScoreActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
-    private int ite = 0;
+public class DiagnoseResultActivity extends AppCompatActivity {
+
     private MyValue myValue;
+    private DiagnoseAdapter diagnoseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //初期化
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_diagnoseresult);
         myValue = (MyValue) this.getApplication();
+        ListView listView = findViewById(R.id.diagnose_result);
 
-        Intent i = getIntent();
-        String madorinum = i.getStringExtra("madorinum");
-
-        setContentView(R.layout.activity_score);
-
-        ImageButton start_Button = findViewById(R.id.start_button);
-        ImageButton reset_Button = findViewById(R.id.reset_button);
-        TextView score = findViewById(R.id.score);
-        start_Button.setImageResource(R.drawable.start_icon);
-
-
-        //letterへ遷移
-        start_Button.setOnClickListener(v -> {
-
-            ite++;
-
-
-            if(ite == 0){
-                start_Button.setImageResource(R.drawable.start_icon);
-                score.setText("");
-
-
-            }else if(ite == 1){
-                start_Button.setImageResource(R.drawable.socring_icon);
-                score.setText("");
-
-            }else if(ite == 2){
-                start_Button.setImageResource(R.drawable.finish_icon);
-                score.setText("26");
-
-                Time time = new Time("Asia/Tokyo");
-                time.setToNow();
-                String date = time.year + "\n"+ (time.month+1) + "/" + time.monthDay;
-                String[] diagnose = new String[]{date,madorinum,"26"};
-                myValue.addDisagnose(diagnose);
-            }
-
-
-
-        });
-
-        reset_Button.setOnClickListener(view -> {
-
-            ite = 0;
-            start_Button.setImageResource(R.drawable.start_icon);
-            score.setText("");
-        });
+        diagnoseAdapter = new DiagnoseAdapter(DiagnoseResultActivity.this, R.layout.diagnose_list,myValue.getDiagnose_list() );
+        listView.setAdapter(diagnoseAdapter);
 
         ImageButton diagnose_Button = findViewById(R.id.diagnose_button);
         ImageButton log_Button = findViewById(R.id.log_button);
@@ -108,8 +68,6 @@ public class ScoreActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplication(), MainActivity.class);
             startActivity(intent);
         });
-
-
 
     }
 }

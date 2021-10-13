@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.DialogFragment;
 
+import android.text.format.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +70,11 @@ public class WindowLocationActivity extends AppCompatActivity {
 
             myValue.setMadori(temp_Madori_list,SelectNum);
 
+
+
+            String madorinum = String.valueOf(SelectNum+1);
             Intent intent = new Intent(getApplication(), ScoreActivity.class);
+            intent.putExtra("madorinum", madorinum);
             startActivity(intent);
 
 
@@ -81,8 +86,10 @@ public class WindowLocationActivity extends AppCompatActivity {
             ImageView waku = view1.findViewById(R.id.waku);
             MadoriView canvas1 = view1.findViewById(R.id.canvas);
             Button touch = view1.findViewById(R.id.touch);
+            TextView madorinum = view1.findViewById(R.id.madorinum);
             waku.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.madori_waku_off));
             canvas1.setPoint(myValue.getMadori_list().get(i));
+            madorinum.setText(String.valueOf(i+1));
             madoriList.addView(view1,i);
 
             touch.setOnClickListener(view ->{
@@ -166,35 +173,7 @@ public class WindowLocationActivity extends AppCompatActivity {
 
 
 
-//        LinearLayout canvas = (LinearLayout) findViewById(R.id.canvas);
-//
-//        View view = getLayoutInflater().inflate(R.layout.custom_circleseekbar, null);
-//        canvas.addView(view);
-//        final TextView textEvent = view.findViewById(R.id.text_event);
-//        final TextView textProgress = view.findViewById(R.id.text_progress);
-//        CircularSeekBar seekBar = (CircularSeekBar) view.findViewById(R.id.seek_bar);
-//
-//
-//        seekBar.setOnSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(CircularSeekBar circularSeekBar, float progress, boolean fromUser) {
-//                String message = String.format("Progress changed to %.2f, fromUser %s", progress, fromUser);
-//                Log.d("Main", message);
-//                textProgress.setText(message);
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(CircularSeekBar seekBar) {
-//                Log.d("Main", "onStopTrackingTouch");
-//                textEvent.setText("");
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(CircularSeekBar seekBar) {
-//                Log.d("Main", "onStartTrackingTouch");
-//                textEvent.setText("touched | ");
-//            }
-//        });
+
     }
 
     @Override

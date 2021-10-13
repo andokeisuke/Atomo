@@ -20,6 +20,7 @@ public class MyValue extends Application {
     private List<List<float[]>> madori_list = new ArrayList<>();
     private float[] in_status = {20,60};
     private float[] out_status = {0,20,60};
+    private List<String[]> diagnose_list = new ArrayList<>();
 
 
     @Override
@@ -156,5 +157,11 @@ public class MyValue extends Application {
     public float[] getOut_status(){
 
         return out_status;
+    }
+
+    public List<String[]>getDiagnose_list(){ return diagnose_list;}
+
+    public void addDisagnose(String[] Diagnose){
+        diagnose_list.add(Diagnose);
     }
 }

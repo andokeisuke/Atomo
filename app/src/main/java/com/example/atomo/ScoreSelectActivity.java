@@ -27,8 +27,8 @@ public class ScoreSelectActivity extends AppCompatActivity {
 
         past_score_Button.setOnClickListener(v -> {
 
-            //Intent intent = new Intent(getApplication(), LetterActivity.class);
-            //startActivity(intent);
+            Intent intent = new Intent(getApplication(), DiagnoseResultActivity.class);
+            startActivity(intent);
         });
 
 
