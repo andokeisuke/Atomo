@@ -16,7 +16,8 @@
         app:cs_circle_stroke_width="5dp"
         app:cs_pointer_stroke_width="1dp"
         app:cs_pointer_halo_width="@dimen/seekbar_holo_width"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        app:cs_circle_fill = "#ffffff"/>
 
 
     <TextView

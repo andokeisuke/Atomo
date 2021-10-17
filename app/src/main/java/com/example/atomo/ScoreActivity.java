@@ -136,7 +136,7 @@ public class ScoreActivity extends AppCompatActivity {
                     count++;
                     progressBar.setProgress((int)(count));
 
-                    if(count == 10){
+                    if(count > 10){
                         start_Button.setImageResource(R.drawable.finish_icon);
                         progressBar.setProgress(0);
                         score.setText("26");

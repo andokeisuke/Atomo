@@ -44,7 +44,7 @@ public class TouchView extends View {
 
         Paint p = new Paint();
         p.setAntiAlias(true);
-        p.setColor(Color.GREEN);
+        p.setColor(Color.BLUE);
 
         // 半径10の円を描画する
         for(int i = 0;i<points.size();i++){

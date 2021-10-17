@@ -122,8 +122,8 @@ public class WindowLocationActivity extends AppCompatActivity {
 
                     View customSeekbar = getLayoutInflater().inflate(R.layout.custom_circleseekbar, null);
                     window.addView(customSeekbar);
-                    customSeekbar.setTranslationX(myValue.getMadori_list().get(index).get(k)[0]);
-                    customSeekbar.setTranslationY(myValue.getMadori_list().get(index).get(k)[1]);
+                    customSeekbar.setTranslationX(myValue.getMadori_list().get(index).get(k)[0]*2/3+150);
+                    customSeekbar.setTranslationY(myValue.getMadori_list().get(index).get(k)[1]*2/3-25);
                     SeekBars.add(customSeekbar);
                     TextView percent = customSeekbar.findViewById(R.id.percent);
                     CircularSeekBar seekBar = (CircularSeekBar) customSeekbar.findViewById(R.id.seek_bar);

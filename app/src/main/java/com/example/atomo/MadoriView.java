@@ -26,11 +26,11 @@ public class MadoriView extends View{
 
         Paint paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setColor(Color.GREEN);
+        paint.setColor(Color.BLUE);
 
         for(int i = 0;i<points.size();i++){
 
-            canvas.drawCircle(points.get(i)[0]/3, points.get(i)[1]/3, 40, paint);
+            canvas.drawCircle(points.get(i)[0]/3, points.get(i)[1]/3, 10, paint);
 
 
         }
