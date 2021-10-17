@@ -11,7 +11,7 @@
         android:id="@+id/letter_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY"
+
         android:src="@drawable/letter_background" />
 
     <ImageView
@@ -67,7 +67,7 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="310dp"
-        android:layout_height="441dp"
+        android:layout_height="350dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -106,7 +106,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:progressDrawable="@drawable/custom_seekbar" />
+                    android:progressDrawable="@drawable/custom_seekbar"
+                    android:thumb="@drawable/custom_thumb"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -148,7 +150,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:progressDrawable="@drawable/custom_seekbar" />
+                    android:progressDrawable="@drawable/custom_seekbar"
+                    android:thumb="@drawable/custom_thumb"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -190,7 +193,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:progressDrawable="@drawable/custom_seekbar" />
+                    android:progressDrawable="@drawable/custom_seekbar"
+                    android:thumb="@drawable/custom_thumb"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -232,7 +236,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:progressDrawable="@drawable/custom_seekbar" />
+                    android:progressDrawable="@drawable/custom_seekbar"
+                    android:thumb="@drawable/custom_thumb"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -273,7 +278,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:progressDrawable="@drawable/custom_seekbar" />
+                    android:progressDrawable="@drawable/custom_seekbar"
+                    android:thumb="@drawable/custom_thumb"/>
 
                 <TextView
                     android:layout_width="wrap_content"
