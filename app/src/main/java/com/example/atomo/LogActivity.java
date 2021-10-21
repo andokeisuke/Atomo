@@ -33,6 +33,7 @@ import android.text.format.Time;
 public class LogActivity extends AppCompatActivity {
 
     private LineChart mChart;
+    private MyValue myValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class LogActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_log);
         TextView textView = findViewById(R.id.test);
+        myValue = (MyValue) this.getApplication();
 
         ImageButton diagnose_Button = findViewById(R.id.diagnose_button);
         ImageButton log_Button = findViewById(R.id.log_button);
@@ -129,7 +131,59 @@ public class LogActivity extends AppCompatActivity {
 
         //myRef.setValue("Hello, World!");
 
-        myRef.addValueEventListener(new ValueEventListener() {
+        Time time = new Time("Asia/Tokyo");
+        time.setToNow();
+        int hour = time.hour;
+        int min = time.minute;
+        int sec = 0;
+        if(sec<=15) sec = 0;
+        else if (sec>15&&sec<=30) sec = 15;
+        else if (sec>30&&sec<=45) sec = 30;
+        else if (sec>45) sec = 45;
+
+        List<String> date_labels = new ArrayList<String>();
+        date_labels.add("0:0:0");
+        int temp_h = 0;
+        int temp_m = 0;
+        int temp_s = 0;
+
+        for (int i = 0; i<6000; i++) {
+
+            temp_s = temp_s + 15;
+
+            if(temp_s == 60){
+
+                temp_m++;
+                temp_s = 0;
+            }
+
+            if(temp_m == 60){
+
+                temp_h++;
+                temp_m = 0;
+            }
+
+            if(temp_h == 24){
+                temp_h = 0;
+            }
+
+
+            date_labels.add( temp_h + ":" + temp_m + ":" + temp_s);
+
+            if((hour==temp_h)&&(min == temp_m)&&(sec == temp_s)) break;
+
+        }
+
+        List<Integer> ppm = new ArrayList<>();
+
+        for (int i = 0; i < date_labels.size(); i++) {
+            ppm.add((int)myValue.get_test_data()[i]);
+        }
+
+        setData(ppm,date_labels);
+        mChart.invalidate();
+
+        /*myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
@@ -208,7 +262,7 @@ public class LogActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
             }
-        });
+        });*/
 
 
 
@@ -222,7 +276,7 @@ public class LogActivity extends AppCompatActivity {
 
         YAxis leftAxis = mChart.getAxisLeft();
         // Y軸最大最小設定
-        leftAxis.setAxisMaximum(4500);
+        leftAxis.setAxisMaximum(1500);
         leftAxis.setAxisMinimum(400);
 
         ArrayList<Entry> values = new ArrayList<>();

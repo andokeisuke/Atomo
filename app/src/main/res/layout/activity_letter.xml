@@ -77,7 +77,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="299dp"
             android:orientation="vertical">
 
 
@@ -85,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="暑がり度"
+                android:text="室温は？"
                 android:textSize="25dp">
 
             </TextView>
@@ -97,7 +97,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="低">
+                    android:text="寒">
 
                 </TextView>
 
@@ -107,13 +107,12 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:progressDrawable="@drawable/custom_seekbar"
-                    android:thumb="@drawable/custom_thumb"
-                    />
+                    android:thumb="@drawable/custom_thumb" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="高">
+                    android:text="暑">
 
                 </TextView>
 
@@ -125,6 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
+            <!--
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,12 +167,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
+                -->
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="花粉の症状"
+                android:text="花粉を感じる？"
                 android:textSize="25dp">
 
             </TextView>
@@ -184,7 +185,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="弱">
+                    android:text="少">
 
                 </TextView>
 
@@ -194,12 +195,12 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:progressDrawable="@drawable/custom_seekbar"
-                    android:thumb="@drawable/custom_thumb"/>
+                    android:thumb="@drawable/custom_thumb" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="">
+                    android:text="多">
 
                 </TextView>
 
@@ -215,7 +216,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="湿度の苦手度"
+                android:text="湿度は？"
                 android:textSize="25dp">
 
             </TextView>
@@ -227,7 +228,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="低">
+                    android:text="乾">
 
                 </TextView>
 
@@ -237,17 +238,17 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:progressDrawable="@drawable/custom_seekbar"
-                    android:thumb="@drawable/custom_thumb"/>
+                    android:thumb="@drawable/custom_thumb" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="高">
+                    android:text="湿">
 
                 </TextView>
 
             </LinearLayout>
-
+            <!--
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -289,6 +290,7 @@
                 </TextView>
 
             </LinearLayout>
+            -->
 
 
         </LinearLayout>

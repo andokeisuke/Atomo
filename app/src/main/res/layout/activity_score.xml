@@ -98,13 +98,14 @@
         android:layout_centerInParent="true"
         android:indeterminate="false"
         android:max="10"
-        android:progress="45"
+        android:progress="3"
         android:progressDrawable="@drawable/custom_progressbar"
         app:layout_constraintBottom_toBottomOf="@+id/imageView10"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5"
+        android:rotation="-90"/>
 
     <ImageButton
         android:id="@+id/start_button"
@@ -136,17 +137,33 @@
 
     <TextView
         android:id="@+id/score"
-        android:layout_width="101dp"
-        android:layout_height="62dp"
-        android:textSize="50sp"
+        android:layout_width="60dp"
+        android:layout_height="38dp"
+        android:gravity="center_vertical|center_horizontal"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toTopOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.098"
-        android:gravity="center_vertical|center_horizontal">
+        app:layout_constraintVertical_bias="0.0">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="60dp"
+        android:layout_height="38dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text=""
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toStartOf="@+id/imageView10"
+        app:layout_constraintTop_toBottomOf="@+id/score"
+        app:layout_constraintVertical_bias="0.0">
 
     </TextView>
 
@@ -159,7 +176,7 @@
         app:layout_constraintEnd_toEndOf="@+id/score_background"
         app:layout_constraintStart_toStartOf="@+id/score_background"
         app:layout_constraintTop_toBottomOf="@+id/start_button"
-        app:layout_constraintVertical_bias="0.492">
+        app:layout_constraintVertical_bias="0.493">
 
     </ImageView>
 

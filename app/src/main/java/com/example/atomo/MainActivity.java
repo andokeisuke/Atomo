@@ -5,6 +5,8 @@ import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton atomo;
     private ImageView climate_background;
     private ImageView window_background;
+    private Animation animation;
 
     private float[] th = {800,900,1000,1200};
 
@@ -55,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
         atomo = findViewById(R.id.atomo);
         climate_background = findViewById(R.id.climate_background);
         window_background = findViewById(R.id.window_background);
-
+        animation = AnimationUtils.loadAnimation(this, R.anim.translate_animation);
+        atomo.startAnimation(animation);
 
         //状態の更新
         float CO2 = myValue.getCO2();

@@ -26,6 +26,7 @@ public class ScoreActivity extends AppCompatActivity {
     private long count;
     private ImageButton start_Button;
     private TextView score;
+    private TextView time;
     private ProgressBar progressBar;
     private String madorinum;
 
@@ -43,6 +44,7 @@ public class ScoreActivity extends AppCompatActivity {
         start_Button = findViewById(R.id.start_button);
         ImageButton reset_Button = findViewById(R.id.reset_button);
         score = findViewById(R.id.score);
+        time = findViewById(R.id.time);
         start_Button.setImageResource(R.drawable.start_icon);
 
         progressBar = findViewById(R.id.progressBarToday);
@@ -139,7 +141,8 @@ public class ScoreActivity extends AppCompatActivity {
                     if(count > 10){
                         start_Button.setImageResource(R.drawable.finish_icon);
                         progressBar.setProgress(0);
-                        score.setText("26");
+                        score.setText("80");
+                        time.setText("15");
 
                         Time time = new Time("Asia/Tokyo");
                         time.setToNow();
