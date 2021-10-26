@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         if(Status == 0){
-            background.setImageResource(R.drawable.main_background100);
+            background.setImageResource(R.drawable.back);
             comfort_var.setImageResource(R.drawable.comfort_var100);
             atomo.setImageResource(R.drawable.atomo_love);
             if(climate==0){

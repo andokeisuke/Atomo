@@ -5,24 +5,36 @@ package com.example.atomo;
 import static android.icu.text.DateTimePatternGenerator.PatternInfo.OK;
 import static java.security.AccessController.getContext;
 
+import android.app.Application;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 
 public class LetterActivity extends AppCompatActivity {
 
     private MyValue myValue;
     private int[] user_status;
     private SeekBar[] User_Bar;
+    private Application letter;
+    private DialogFragment dialogFragment;
+    private FragmentManager flagmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        letter = getApplication();
 
         setContentView(R.layout.activity_letter);
         myValue = (MyValue) this.getApplication();
@@ -55,7 +67,12 @@ public class LetterActivity extends AppCompatActivity {
 
             myValue.setUser_status(user_status);
 
-            new AlertDialog.Builder(this)
+            flagmentManager = getSupportFragmentManager();
+
+            dialogFragment = new AlertDialogFragment(getApplication());
+            dialogFragment.show(flagmentManager, "test alert dialog");
+
+            /*new AlertDialog.Builder(this)
                     .setTitle("送信")
                     .setMessage( "送信しました")
                     .setPositiveButton("OK" , new DialogInterface.OnClickListener() {
@@ -66,7 +83,7 @@ public class LetterActivity extends AppCompatActivity {
                         }
                     })
                     .create()
-                    .show();
+                    .show();*/
 
 
 
@@ -75,6 +92,59 @@ public class LetterActivity extends AppCompatActivity {
 
         });
 
+
+    }
+
+
+    public static class AlertDialogFragment extends DialogFragment {
+
+        AlertDialog dialog ;
+        AlertDialog.Builder alert;
+        View alertView;
+        Application letter;
+
+
+        public AlertDialogFragment(Application Letter){
+
+            letter = Letter;
+
+        }
+
+        @Override
+        @NonNull
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            alert = new AlertDialog.Builder(getActivity());
+
+            // カスタムレイアウトの生成
+            if(getActivity() != null) {
+                alertView = getActivity().getLayoutInflater().inflate(R.layout.alert_lyout, null);
+            }
+
+            // alert_layout.xmlにあるボタンIDを使う
+            ImageView bag1 = alertView.findViewById(R.id.ok_button);
+            bag1.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    //Log.d("debug","bag1 clicked");
+
+                    // Dialogを消す
+                    getDialog().dismiss();
+                    Intent intent = new Intent(letter, BoardActivity.class);
+                    startActivity(intent);
+
+
+                }
+            });
+
+
+            // ViewをAlertDialog.Builderに追加
+            alert.setView(alertView);
+
+            // Dialogを生成
+            dialog = alert.create();
+            dialog.show();
+
+            return dialog;
+        }
 
     }
 }

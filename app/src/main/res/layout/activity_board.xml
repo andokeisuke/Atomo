@@ -62,7 +62,7 @@
         android:layout_margin="10dp"
         android:gravity="center"
 
-        android:text="今日は天気が良く過ごしやすい気候\nなので家にいる場合は常時窓を開けて置くと気持ちがいいと思うよ．"
+        android:text="今日は，外との気温差が大きいから\n10㎝くらい開けて長く換気しよう"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
