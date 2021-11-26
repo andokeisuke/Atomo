@@ -152,7 +152,8 @@ public class MainActivity extends AppCompatActivity {
                 String climate = (String)dataSnapshot.child("climate").getValue();
                 String tempture = (String) dataSnapshot.child("tempture").getValue();
                 String humidity = (String) dataSnapshot.child("humidity").getValue();
-                myValue.setOut_status(Integer.parseInt(climate),Float.parseFloat(tempture),Float.parseFloat(humidity));
+                String pollen = (String) dataSnapshot.child("pollen").getValue();
+                myValue.setOut_status(Integer.parseInt(climate),Float.parseFloat(tempture),Float.parseFloat(humidity),Float.parseFloat(pollen));
                 out_tempture.setText(tempture);
                 out_humidity.setText(humidity);
                 JudgeStatus(myValue.getCO2(),(int)myValue.getOut_status()[0]);

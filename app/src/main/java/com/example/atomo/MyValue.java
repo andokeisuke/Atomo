@@ -19,7 +19,7 @@ public class MyValue extends Application {
     private int [] user_status = {2,2,2,2,2};
     private List<List<float[]>> madori_list = new ArrayList<>();
     private float[] in_status = {20,60};
-    private float[] out_status = {0,20,60};
+    private float[] out_status = {0,20,60,0};
     private List<String[]> diagnose_list = new ArrayList<>();
 
 
@@ -148,10 +148,11 @@ public class MyValue extends Application {
         return in_status;
     }
 
-    public void setOut_status(int climate,float tempture,float humidity){
+    public void setOut_status(int climate,float tempture,float humidity,float pollen){
         out_status[0] = climate;
         out_status[1] = tempture;
         out_status[2] = humidity;
+        out_status[3] = pollen;
     }
 
     public float[] getOut_status(){
