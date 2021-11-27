@@ -6,12 +6,20 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.format.Time;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,6 +37,9 @@ public class ScoreActivity extends AppCompatActivity {
     private TextView time;
     private ProgressBar progressBar;
     private String madorinum;
+    private float nowppm;
+    private float nextppm;
+    private FirebaseDatabase database;
 
 
     @Override
@@ -50,6 +61,11 @@ public class ScoreActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBarToday);
         progressBar.setProgress(0);
 
+        database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("CO2");
+
+
+
 
         //letterへ遷移
         start_Button.setOnClickListener(v -> {
@@ -57,7 +73,22 @@ public class ScoreActivity extends AppCompatActivity {
 
             start_Button.setImageResource(R.drawable.socring_icon);
             score.setText("");
+            time.setText("");
             progressBar.setProgress(0);
+
+            myRef.child("value").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    }
+                    else {
+                        nowppm = Float.parseFloat(String.valueOf(task.getResult().getValue()));
+
+
+                    }
+                }
+            });
 
             // Timer インスタンスを生成
             timer = new Timer();
@@ -75,7 +106,9 @@ public class ScoreActivity extends AppCompatActivity {
 
             start_Button.setImageResource(R.drawable.start_icon);
             score.setText("");
+            time.setText("");
             progressBar.setProgress(0);
+
             count = 0;
             if(null != timer){
                 // Cancel
@@ -141,8 +174,24 @@ public class ScoreActivity extends AppCompatActivity {
                     if(count > 10){
                         start_Button.setImageResource(R.drawable.finish_icon);
                         progressBar.setProgress(0);
-                        score.setText("80");
-                        time.setText("15");
+
+                        database.getReference("CO2").child("value").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                if (!task.isSuccessful()) {
+                                    Log.e("firebase", "Error getting data", task.getException());
+                                }
+                                else {
+                                    nextppm = Float.parseFloat(String.valueOf(task.getResult().getValue()));
+
+
+                                }
+                            }
+                        });
+
+                        nextppm = 500;
+                        score.setText(String.valueOf(CalScore(nowppm,nextppm)));
+                        time.setText(String.valueOf((int)(60*(100-CalScore(nowppm,nextppm))/100)));
 
                         Time time = new Time("Asia/Tokyo");
                         time.setToNow();
@@ -162,5 +211,27 @@ public class ScoreActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    private int CalScore(float nowppm,float nextppm){
+
+        int result = 0;
+
+        float roomsize = (float) (myValue.getRoom_size()*1.62*2f);//[m3]
+        float peoplenum = (float)(myValue.getPeople_num());
+        float time = 1/6;
+        float humanppm = 20000;
+        float outppm = 413;
+
+        float predictppm = (nowppm * roomsize + humanppm * peoplenum * time)/roomsize; //[ppm]
+
+        float kankiryo = (predictppm - nextppm)*roomsize/(predictppm-outppm);
+
+        result = (int)(kankiryo/roomsize*100);
+
+
+        return result;
+
+
     }
 }
