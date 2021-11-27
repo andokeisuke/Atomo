@@ -28,8 +28,8 @@ import java.util.Locale;
 public class BoardActivity  extends AppCompatActivity {
 
     private Handler handler = new Handler();
-    private String weather_url = "https://api.openweathermap.org/data/2.5/onecall?lat=35.681236&lon=139.767125&units=metric&lang=ja&appid=08eff6d88359db7c9777c7fb65d2955e";
-    private String pollen_url = "https://kafun.env.go.jp/hanako/api/data_search?Start_YM=202103&End_YM=202103&TDFKN_CD=13&SKT_CD=51310200";
+    private String weather_url = "";
+    private String pollen_url = "";
     private float[] new_OutState = {1,1,0,0};
     private MyValue myValue;
 
@@ -42,6 +42,8 @@ public class BoardActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         myValue = (MyValue) this.getApplication();
+        pollen_url = myValue.getAPI_URL()[0];
+        weather_url = myValue.getAPI_URL()[1];
         setContentView(R.layout.activity_board);
 
         ImageButton letter_Button = findViewById(R.id.letter_button);

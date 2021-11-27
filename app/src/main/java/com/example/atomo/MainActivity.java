@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView comfort_var;
     private TextView lifeday_num;
     private ImageButton atomo;
+    private ImageButton setting;
     private ImageView climate_background;
     private ImageView window_background;
     private Animation animation;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         comfort_var = findViewById(R.id.comfort_var);
         lifeday_num = findViewById(R.id.lifeday_num);
         atomo = findViewById(R.id.atomo);
+        setting = findViewById(R.id.setting);
         climate_background = findViewById(R.id.climate_background);
         window_background = findViewById(R.id.window_background);
         animation = AnimationUtils.loadAnimation(this, R.anim.translate_animation);
@@ -69,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
         atomo.setOnClickListener(v -> {
 
             Intent intent = new Intent(getApplication(), StatusActivity.class);
+            startActivity(intent);
+        });
+
+        setting.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getApplication(), SettingActivity.class);
             startActivity(intent);
         });
 

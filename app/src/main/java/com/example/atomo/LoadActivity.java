@@ -41,6 +41,8 @@ public class LoadActivity extends AppCompatActivity {
                 }
                 else {
                     myValue.setCO2(Float.parseFloat(String.valueOf(task.getResult().getValue())));
+                    Intent intent = new Intent(getApplication(), MainActivity.class);
+                    startActivity(intent);
 
                 }
             }
