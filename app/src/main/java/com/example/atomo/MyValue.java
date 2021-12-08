@@ -24,7 +24,8 @@ public class MyValue extends Application {
     private List<String[]> diagnose_list = new ArrayList<>();
     private int people_num = 0;
     private int room_size = 0;
-    private Bitmap madori_url;
+    private Bitmap madori_picture;
+    private Bitmap madori_window;
     private String[] API_URL = new String[2];
 
 
@@ -192,12 +193,20 @@ public class MyValue extends Application {
         room_size = Room_size;
     }
 
-    public Bitmap getMadori_url() {
-        return madori_url;
+    public Bitmap getMadori_picture() {
+        return madori_picture;
     }
 
-    public void setMadori_url(Bitmap Madori_url) {
-        madori_url = Madori_url;
+    public void setMadori_picture(Bitmap Madori_picture) {
+        madori_picture = Madori_picture;
+    }
+
+    public Bitmap getMadori_window() {
+        return madori_window;
+    }
+
+    public void setMadori_window(Bitmap Madori_window) {
+        madori_window = Madori_window;
     }
 
     public String[] getAPI_URL() {

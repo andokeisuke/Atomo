@@ -23,8 +23,6 @@
         android:layout_height="73dp"
         android:src="@drawable/lifeday_icon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/comfort_var"
-        app:layout_constraintHorizontal_bias="0.586"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.02" />
@@ -43,18 +41,6 @@
         app:layout_constraintTop_toTopOf="@+id/lifeday"
         app:layout_constraintVertical_bias="0.592" />
 
-    <ImageView
-        android:id="@+id/comfort_var"
-        android:layout_width="265dp"
-        android:layout_height="79dp"
-        android:src="@drawable/comfort_var100"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.945"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
-
 
     <ImageView
         android:layout_width="265dp"
@@ -64,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comfort_var"
+        app:layout_constraintTop_toBottomOf="@+id/lifeday"
         app:layout_constraintVertical_bias="0.636" />
 
     <ImageView
@@ -76,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/daily"
-        app:layout_constraintTop_toBottomOf="@+id/comfort_var"
+        app:layout_constraintTop_toBottomOf="@+id/lifeday"
         app:layout_constraintVertical_bias="0.381" />
 
     <ListView

@@ -53,7 +53,7 @@ public class SettingActivity extends AppCompatActivity {
         address = findViewById(R.id.address);
         btn_import = findViewById(R.id.btn_import);
         img_picture = findViewById(R.id.img_picture);
-        img_picture.setImageResource(R.drawable.madori);
+        img_picture.setImageBitmap(myValue.getMadori_window());
 
         people_num.setText(String.valueOf(myValue.getPeople_num()));
         room_size.setText(String.valueOf(myValue.getRoom_size()));
@@ -132,10 +132,13 @@ public class SettingActivity extends AppCompatActivity {
         btn_import.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+
+                Intent intent = new Intent(getApplication(), SettingWindowActivity.class);
+                startActivity(intent);
+                /*Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 intent.setType("image/*");
-                startActivityForResult(intent, READ_REQUEST_CODE);  //READ_REQUSET_CODE = 42
+                startActivityForResult(intent, READ_REQUEST_CODE);  //READ_REQUSET_CODE = 42*/
             }
         });
     }
@@ -152,7 +155,7 @@ public class SettingActivity extends AppCompatActivity {
                 try {
                     Bitmap bmp = getBitmapFromUri(uri);
                     img_picture.setImageBitmap(bmp);
-                    myValue.setMadori_url(bmp);
+                    myValue.setMadori_picture(bmp);
                 } catch (IOException e) {
                     //TODO:例外処理
                 }

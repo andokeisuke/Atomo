@@ -33,8 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        tools:layout_editor_absoluteX="-53dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="82dp" />
 
     <ImageView
         android:id="@+id/lifeday"
@@ -62,33 +62,19 @@
         app:layout_constraintTop_toTopOf="@+id/lifeday"
         app:layout_constraintVertical_bias="0.592" />
 
-    <ImageView
-        android:id="@+id/comfort_var"
-        android:layout_width="265dp"
-        android:layout_height="79dp"
-        android:src="@drawable/comfort_var100"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.945"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />>
-
-
-
-
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
 
         android:orientation="horizontal"
-
         app:layout_constraintBottom_toTopOf="@+id/atomo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comfort_var"
+        app:layout_constraintTop_toBottomOf="@+id/lifeday_num"
         app:layout_constraintVertical_bias="0.2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -106,8 +92,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="60"
-                android:textSize="20dp"
                 android:textColor="#ffffff"
+                android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageView4"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -122,8 +108,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="20"
-                android:textSize="20dp"
                 android:textColor="#ffffff"
+                android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView4"
                 app:layout_constraintEnd_toEndOf="@+id/imageView4"
                 app:layout_constraintStart_toStartOf="@+id/imageView4"
@@ -149,8 +135,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="60"
-                android:textSize="20dp"
                 android:textColor="#ffffff"
+                android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageView5"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -165,8 +151,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="20"
-                android:textSize="20dp"
                 android:textColor="#ffffff"
+                android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView5"
                 app:layout_constraintEnd_toEndOf="@+id/imageView5"
                 app:layout_constraintStart_toStartOf="@+id/imageView5"
@@ -176,7 +162,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
     </LinearLayout>
@@ -198,17 +183,17 @@
 
     <ImageButton
         android:id="@+id/setting"
-        android:layout_width="77dp"
-        android:layout_height="77dp"
+        android:layout_width="41dp"
+        android:layout_height="37dp"
         android:background="@null"
         android:scaleType="fitXY"
         android:src="@drawable/ic_baseline_settings_24"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.919"
+        app:layout_constraintStart_toEndOf="@+id/lifeday"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.886" />
+        app:layout_constraintVertical_bias="0.59" />
 
     <LinearLayout
         android:layout_width="match_parent"

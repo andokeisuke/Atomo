@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private MyValue myValue;
     private ImageView background;
-    private ImageView comfort_var;
     private TextView lifeday_num;
     private ImageButton atomo;
     private ImageButton setting;
@@ -54,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         myValue = (MyValue) this.getApplication();
         background = findViewById(R.id.main_background);
-        comfort_var = findViewById(R.id.comfort_var);
         lifeday_num = findViewById(R.id.lifeday_num);
         atomo = findViewById(R.id.atomo);
         setting = findViewById(R.id.setting);
@@ -226,7 +224,6 @@ public class MainActivity extends AppCompatActivity {
 
         if(Status == 0){
             background.setImageResource(R.drawable.back);
-            comfort_var.setImageResource(R.drawable.comfort_var100);
             atomo.setImageResource(R.drawable.atomo_love);
             if(climate==0){
                 climate_background.setVisibility(View.GONE);
@@ -249,7 +246,6 @@ public class MainActivity extends AppCompatActivity {
 
         }else if(Status == 1){
             background.setImageResource(R.drawable.main_background75);
-            comfort_var.setImageResource(R.drawable.comfort_var75);
             atomo.setImageResource(R.drawable.atomo_nikoniko);
             if(climate==0){
                 climate_background.setVisibility(View.GONE);
@@ -272,7 +268,6 @@ public class MainActivity extends AppCompatActivity {
 
         }else if(Status == 2){
             background.setImageResource(R.drawable.main_background50);
-            comfort_var.setImageResource(R.drawable.comfort_var50);
             atomo.setImageResource(R.drawable.atomo_default);
 
             if(climate==0){
@@ -297,7 +292,6 @@ public class MainActivity extends AppCompatActivity {
 
         }else if(Status == 3){
             background.setImageResource(R.drawable.main_background25);
-            comfort_var.setImageResource(R.drawable.comfort_var25);
             atomo.setImageResource(R.drawable.atomo_syonbori);
 
             if(climate==0){

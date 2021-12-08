@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.123"
+        tools:layout_editor_absoluteX="-31dp">
+
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/window_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+
+            android:background="@drawable/window_icon"
+            tools:layout_editor_absoluteX="36dp"
+            tools:layout_editor_absoluteY="131dp"></ImageButton>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/door_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+
+            android:background="@drawable/door_icon"
+            tools:layout_editor_absoluteX="36dp"
+            tools:layout_editor_absoluteY="131dp"></ImageButton>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/fan_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+
+            android:background="@drawable/fan_icon"
+            tools:layout_editor_absoluteX="36dp"
+            tools:layout_editor_absoluteY="131dp"></ImageButton>
+
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+    <com.example.atomo.EditView
+        android:id="@+id/editview"
+        android:layout_width="270dp"
+        android:layout_height="180dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.209">
+
+    </com.example.atomo.EditView>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editview">
+
+        <Button
+            android:id="@+id/reset_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+
+            android:text="リセット"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editview"
+            app:layout_constraintVertical_bias="0.564"></Button>
+
+        <Button
+            android:id="@+id/import_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="import"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toEndOf="@+id/register_button"
+            app:layout_constraintTop_toBottomOf="@+id/editview"
+            app:layout_constraintVertical_bias="0.564"></Button>
+
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="登録"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.181"
+            app:layout_constraintStart_toEndOf="@+id/reset_button"
+            app:layout_constraintTop_toBottomOf="@+id/editview"
+            app:layout_constraintVertical_bias="0.564"></Button>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
