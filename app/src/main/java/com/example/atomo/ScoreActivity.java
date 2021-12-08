@@ -7,8 +7,10 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.format.Time;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -40,6 +42,7 @@ public class ScoreActivity extends AppCompatActivity {
     private float nowppm;
     private float nextppm;
     private FirebaseDatabase database;
+    private ImageView text;
 
 
     @Override
@@ -49,8 +52,15 @@ public class ScoreActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         madorinum = i.getStringExtra("madorinum");
-
         setContentView(R.layout.activity_score);
+
+        ImageView diagnose_window = findViewById(R.id.diagnose_window);
+        diagnose_window.setImageBitmap(myValue.getDiagnose_window());
+        text = findViewById(R.id.imageView10);
+        text.setVisibility(View.INVISIBLE);
+
+
+
 
         start_Button = findViewById(R.id.start_button);
         ImageButton reset_Button = findViewById(R.id.reset_button);
@@ -75,6 +85,7 @@ public class ScoreActivity extends AppCompatActivity {
             score.setText("");
             time.setText("");
             progressBar.setProgress(0);
+            text.setVisibility(View.INVISIBLE);
 
             myRef.child("value").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
@@ -108,6 +119,7 @@ public class ScoreActivity extends AppCompatActivity {
             score.setText("");
             time.setText("");
             progressBar.setProgress(0);
+            text.setVisibility(View.INVISIBLE);
 
             count = 0;
             if(null != timer){
@@ -188,6 +200,8 @@ public class ScoreActivity extends AppCompatActivity {
                                 }
                             }
                         });
+
+                        text.setVisibility(View.VISIBLE);
 
                         nextppm = 500;
                         score.setText(String.valueOf(CalScore(nowppm,nextppm)));

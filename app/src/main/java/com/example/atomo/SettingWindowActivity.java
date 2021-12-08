@@ -42,6 +42,7 @@ public class SettingWindowActivity extends AppCompatActivity {
         import_Button = findViewById(R.id.import_button);
         editView = findViewById(R.id.editview);
         if(myValue.getMadori_picture()!=null) editView.setBackground(myValue.getMadori_picture());
+        if(myValue.getMadori_picture()==null) myValue.setMadori_picture(BitmapFactory.decodeResource(getResources(), R.drawable.madori));
         ImageButton window_icon = findViewById(R.id.window_icon);
         ImageButton door_icon = findViewById(R.id.door_icon);
         ImageButton fan_icon = findViewById(R.id.fan_icon);

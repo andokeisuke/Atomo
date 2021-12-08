@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WindowLocationActivity">
+    tools:context=".WindowStateActivity">
 
 
     <ImageView
@@ -49,21 +49,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lifeday" />
 
-    <ImageView
-        android:id="@+id/diagnose_window"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.661"
-        app:layout_constraintStart_toEndOf="@+id/lifeday"
-        app:layout_constraintTop_toTopOf="@+id/score_background"
-        app:layout_constraintVertical_bias="0.642">
-
-    </ImageView>
-
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textView10"
         android:layout_width="167dp"
         android:layout_height="46dp"
         android:text="一定時間の間にどれだけ換気できて\nいるかを計測するよ！"
@@ -90,101 +77,41 @@
         app:layout_constraintVertical_bias="0.069" />
 
 
-    <ProgressBar
-        android:id="@+id/progressBarToday"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerInParent="true"
-        android:indeterminate="false"
-        android:max="10"
-        android:progress="3"
-        android:progressDrawable="@drawable/custom_progressbar"
-        android:rotation="-90"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/windowList"
+        android:layout_width="270dp"
+        android:layout_height="180dp"
+        android:layout_marginBottom="144dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.8">
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="270dp"
+            android:layout_height="180dp"
+            android:src="@drawable/madori"
+            app:layout_constraintBottom_toBottomOf="@+id/windowList"
+            app:layout_constraintEnd_toEndOf="@+id/windowList">
+
+        </ImageView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <ImageButton
         android:id="@+id/start_button"
-        android:layout_width="207dp"
-        android:layout_height="202dp"
-
-        android:background="@null"
-
-        android:scaleType="fitXY"
-
-        app:layout_constraintBottom_toBottomOf="@+id/progressBarToday"
-        app:layout_constraintEnd_toEndOf="@+id/progressBarToday"
-        app:layout_constraintStart_toStartOf="@+id/progressBarToday"
-        app:layout_constraintTop_toTopOf="@+id/progressBarToday"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <ImageButton
-        android:id="@+id/reset_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/reset_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/decide_icon"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="0.851"
+
+        app:layout_constraintHorizontal_bias="0.916"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/start_button"
-        app:layout_constraintVertical_bias="0.561" />
-
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto"
-        android:gravity="center_vertical|center_horizontal"
-        android:text=""
-        android:textColor="#ff0000"
-        android:textSize="80sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintHorizontal_bias="0.606"
-        app:layout_constraintStart_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/start_button"
-        app:layout_constraintVertical_bias="0.45">
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto"
-        android:gravity="center_vertical|center_horizontal"
-        android:text=""
-        android:textColor="#ff0000"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintHorizontal_bias="0.541"
-        app:layout_constraintStart_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toTopOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="1">
-
-    </TextView>
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="301dp"
-        android:layout_height="83dp"
-        android:src="@drawable/result_display"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/score_background"
-        app:layout_constraintStart_toStartOf="@+id/score_background"
-        app:layout_constraintTop_toBottomOf="@+id/start_button"
-        app:layout_constraintVertical_bias="0.988">
-
-    </ImageView>
+        app:layout_constraintTop_toBottomOf="@+id/windowList" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
