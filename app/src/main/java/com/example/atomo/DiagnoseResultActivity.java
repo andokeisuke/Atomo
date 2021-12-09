@@ -25,7 +25,7 @@ public class DiagnoseResultActivity extends AppCompatActivity {
         myValue = (MyValue) this.getApplication();
         ListView listView = findViewById(R.id.diagnose_result);
 
-        diagnoseAdapter = new DiagnoseAdapter(DiagnoseResultActivity.this, R.layout.diagnose_list,myValue.getDiagnose_list() );
+        diagnoseAdapter = new DiagnoseAdapter(DiagnoseResultActivity.this, R.layout.diagnose_list,myValue.getDiagnose_list(),myValue.getDiagnose_windows() );
         listView.setAdapter(diagnoseAdapter);
 
         ImageButton diagnose_Button = findViewById(R.id.diagnose_button);

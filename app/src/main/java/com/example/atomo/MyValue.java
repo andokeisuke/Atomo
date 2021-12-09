@@ -27,6 +27,7 @@ public class MyValue extends Application {
     private Bitmap madori_picture;
     private Bitmap madori_window;
     private Bitmap diagnose_window;
+    private List<Bitmap> diagnose_windows = new ArrayList<>();
     private String[] API_URL = new String[2];
 
 
@@ -145,6 +146,14 @@ public class MyValue extends Application {
 
         }
     }
+
+    public List<Bitmap> getDiagnose_windows(){ return diagnose_windows;}
+
+    public void addDiagnose_windows(Bitmap Diagnose_window){
+
+        diagnose_windows.add(Diagnose_window);
+    }
+
 
     public void setIn_status(float tempture,float humidity){
         in_status[0] = tempture;

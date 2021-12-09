@@ -210,8 +210,9 @@ public class ScoreActivity extends AppCompatActivity {
                         Time time = new Time("Asia/Tokyo");
                         time.setToNow();
                         String date = time.year + "\n"+ (time.month+1) + "/" + time.monthDay;
-                        String[] diagnose = new String[]{date,madorinum,"26"};
+                        String[] diagnose = new String[]{date,madorinum,String.valueOf(CalScore(nowppm,nextppm))};
                         myValue.addDisagnose(diagnose);
+                        myValue.addDiagnose_windows(myValue.getDiagnose_window());
                         count = 0;
 
                         if(null != timer){

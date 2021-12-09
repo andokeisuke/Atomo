@@ -31,34 +31,32 @@
 
     </TextView>
 
-    <TextView
-        android:id="@+id/madorinum"
+    <ImageView
+        android:id="@+id/diagnose_window"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintStart_toEndOf="@+id/date"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
-        android:text="1"
-        android:textSize="25dp"
         android:gravity="center_vertical|center_horizontal"
 
         >
 
-    </TextView>
+    </ImageView>
 
     <TextView
         android:id="@+id/result"
         android:layout_width="99dp"
         android:layout_height="40dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="30 m³/h"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
         app:layout_constraintHorizontal_bias="0.567"
-        app:layout_constraintStart_toEndOf="@+id/madorinum"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="30 m³/h"
-        android:textSize="25dp"
-        android:gravity="center_vertical|center_horizontal">
+        app:layout_constraintStart_toEndOf="@+id/diagnose_window"
+        app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
 
