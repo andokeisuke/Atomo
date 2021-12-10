@@ -14,9 +14,9 @@ public class MyValue extends Application {
     private float CO2 = 0;
     private boolean[] Item = new boolean[4];
     private boolean[] Interia = new boolean[4];
-    private int [] daily_status = {0,1,2,3,4};
-    private int [] monthly_status = {0,1,2,3,4};
-    private int [] weekly_status = {0,1,2,3,4};
+    private int [] daily_status = {0,4,2,3,4};
+    private int [] monthly_status = {0,4,2,3,4};
+    private int [] weekly_status = {0,4,2,3,4};
     private int [] user_status = {2,2,2,2,2};
     private List<List<float[]>> madori_list = new ArrayList<>();
     private float[] in_status = {20,60};

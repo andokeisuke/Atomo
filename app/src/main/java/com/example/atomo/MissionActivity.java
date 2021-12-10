@@ -47,31 +47,23 @@ public class MissionActivity extends AppCompatActivity {
 
     private static final String[] daily_text = {
 
-            "充実度70以上を維持",
-            "CO2 800ppm以下を維持",
-            "温度28度以下を維持",
-            "湿度50％以下を維持",
-            "湿度50％以下を維持"
+            "外出時間5時間達成",
+            "掲示板を確認"
 
     };
 
     private static final String[] weekly_text = {
 
-            "充実度70以上を維持",
-            "CO2 800ppm以下を維持",
-            "温度28度以下を維持",
-            "湿度50％以下を維持",
-            "5日間ミッション達成"
+            "連続外出日数7日達成",
+            "CO2 800ppm以下を維持"
 
     };
 
     private static final String[] monthly_text = {
 
-            "充実度70以上を維持",
-            "CO2 800ppm以下を維持",
-            "温度28度以下を維持",
-            "湿度50％以下を維持",
-            "20日ミッション達成"
+            "初めて手紙を送る",
+            "初めて換気診断を使う",
+            "連続外出日数30日達成"
 
     };
 

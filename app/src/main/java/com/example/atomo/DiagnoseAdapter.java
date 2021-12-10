@@ -61,7 +61,7 @@ public class DiagnoseAdapter extends BaseAdapter {
 
         holder.date.setText(diagnose_list.get(position)[0]);
         holder.diagnose_window.setImageBitmap(diagnose_windows.get(position));
-        holder.result.setText(diagnose_list.get(position)[2]+"m³/h");
+        holder.result.setText(diagnose_list.get(position)[2]+"%");
 
         return convertView;
     }

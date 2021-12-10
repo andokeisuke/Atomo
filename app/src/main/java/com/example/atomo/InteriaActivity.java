@@ -2,40 +2,19 @@ package com.example.atomo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+public class InteriaActivity extends AppCompatActivity {
 
-public class StatusActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_status);
-
-
-        ImageButton accesoryButton = findViewById(R.id.accesory_button);
-        ImageButton interiaButton = findViewById(R.id.interia_button);
-
-        accesoryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplication(), AccesoryActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        interiaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplication(), InteriaActivity.class);
-                startActivity(intent);
-            }
-        });
+        setContentView(R.layout.activity_interia);
 
         ImageButton diagnose_Button = findViewById(R.id.diagnose_button);
         ImageButton log_Button = findViewById(R.id.log_button);
@@ -78,6 +57,8 @@ public class StatusActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-    }
 
+
+    }
 }
+

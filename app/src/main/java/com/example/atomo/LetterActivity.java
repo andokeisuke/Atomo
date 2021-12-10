@@ -44,11 +44,10 @@ public class LetterActivity extends AppCompatActivity {
 
 
         SeekBar hot_Bar = findViewById(R.id.hot);
-        SeekBar cold_Bar = findViewById(R.id.hot);
         SeekBar pollen_Bar = findViewById(R.id.pollen);
-        SeekBar humidity_Bar = findViewById(R.id.humidity);
-        SeekBar dry_Bar = findViewById(R.id.humidity);
-        User_Bar = new SeekBar[]{hot_Bar, cold_Bar, pollen_Bar, humidity_Bar, dry_Bar};
+        //SeekBar humidity_Bar = findViewById(R.id.humidity);
+        //SeekBar dry_Bar = findViewById(R.id.humidity);
+        User_Bar = new SeekBar[]{hot_Bar,pollen_Bar};
 
         for(int i = 0;i<User_Bar.length;i++){
             User_Bar[i].setMax(4);

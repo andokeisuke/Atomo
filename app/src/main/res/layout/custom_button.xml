@@ -5,8 +5,8 @@
 
     <ImageButton
         android:id="@+id/icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:scaleType="fitXY">
 
     </ImageButton>
@@ -14,7 +14,7 @@
     <TextView
         android:id="@+id/percent"
         android:layout_width="wrap_content"
-        android:layout_height="100dp">
+        android:layout_height="50dp">
 
     </TextView>
 

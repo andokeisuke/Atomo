@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
-        android:text="117"
+        android:text="3"
         android:textColor="#FBFBFB"
         app:layout_constraintBottom_toBottomOf="@+id/lifeday"
         app:layout_constraintEnd_toEndOf="@+id/lifeday"
@@ -53,28 +53,14 @@
         android:id="@+id/diagnose_window"
         android:layout_width="150dp"
         android:layout_height="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintBottom_toTopOf="@+id/progressBarToday"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.661"
+        app:layout_constraintHorizontal_bias="0.612"
         app:layout_constraintStart_toEndOf="@+id/lifeday"
-        app:layout_constraintTop_toTopOf="@+id/score_background"
-        app:layout_constraintVertical_bias="0.642">
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="1.0">
 
     </ImageView>
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="167dp"
-        android:layout_height="46dp"
-        android:text="一定時間の間にどれだけ換気できて\nいるかを計測するよ！"
-        android:textSize="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.12">
-
-    </TextView>
 
     <ImageView
         android:id="@+id/imageView7"
