@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 myValue.setCO2(Float.parseFloat(value1));
                 JudgeStatus(myValue.getCO2(),(int)myValue.getOut_status()[0]);
 
-                String tempture = (String) dataSnapshot.child("tempture").getValue();
+                String tempture = (String) dataSnapshot.child("temperature").getValue();
                 String humidity = (String) dataSnapshot.child("humidity").getValue();
                 myValue.setIn_status(Float.parseFloat(tempture),Float.parseFloat(humidity));
                 in_tempture.setText(tempture);

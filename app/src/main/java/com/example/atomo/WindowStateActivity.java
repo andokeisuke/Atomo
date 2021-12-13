@@ -113,7 +113,7 @@ public class WindowStateActivity extends AppCompatActivity {
                     View vg = (View) v.getParent();
                     int index = window.indexOfChild(vg)-1;
                     if(buttonState[index] == 0){
-                        icon.setImageResource(R.drawable.atomo_default);
+                        icon.setImageResource(R.drawable.door_open);
                         buttonState[index] = 1;
 
                     }else if(buttonState[index] == 1){
@@ -132,7 +132,7 @@ public class WindowStateActivity extends AppCompatActivity {
                     View vg = (View) icon.getParent();
                     int index = window.indexOfChild(vg)-1;
                     if(buttonState[index] == 0){
-                        icon.setImageResource(R.drawable.atomo_default);
+                        icon.setImageResource(R.drawable.fan_on);
                         buttonState[index] = 1;
 
                     }
